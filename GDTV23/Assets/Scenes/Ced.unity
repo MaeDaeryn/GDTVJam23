@@ -957,9 +957,11 @@ MonoBehaviour:
   dialog:
     name: NPC
     saetze:
-    - "Test text 1\t"
-    - test text 2
-    - test text 3
+    - Guten Tag, dies ist der Test-text zum Testen, ob das Dialogfenster Funktioniert.
+    - Das Dialogfenster sollte Animationen haben, sowie der Text, der nach und nach
+      eingeblendet wird.
+    - "Sobald der Dialog abgeschlossen ist, wird sich gleich dieses fenster schlie\xDFen
+      und der Dialog kann von vorne begonnen werden"
 --- !u!114 &1240627515
 MonoBehaviour:
   m_ObjectHideFlags: 0
