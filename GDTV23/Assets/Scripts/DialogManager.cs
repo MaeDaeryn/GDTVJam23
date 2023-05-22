@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-
+    
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DialogText;
 
@@ -15,12 +15,13 @@ public class DialogManager : MonoBehaviour
     private Queue<string> saetze;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         saetze = new Queue<string>();
     }
 
+    // Der Animator erkennt das der Dialog startet uund blendet das Dialogfenster ein und Schreibt den ersten Satz.
     public void StartDialog(Dialog dialog)
     {
         animator.SetBool("Ist Offen", true);
@@ -38,6 +39,7 @@ public class DialogManager : MonoBehaviour
 
     }
 
+    // der nächste Satz wird eingelendet wenn der Dialog fortgesetzt. Die Sätze werden geschrieben uund nicht auuf einmal eingeblendet.
     public void DisplayNextSatz()
     {
         if (saetze.Count == 0)
@@ -51,6 +53,7 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(SchreibeSatz(satz));
     }
 
+    // Buuchstaben werden nach und nach angezeigt.
     IEnumerator SchreibeSatz (string satz)
     {
         DialogText.text = "";
@@ -61,6 +64,7 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    // Dialogfensterr wird geschlossen, sobald der Dialog beendet ist.
     void EndDialog()
     {
         animator.SetBool("Ist Offen", false);
