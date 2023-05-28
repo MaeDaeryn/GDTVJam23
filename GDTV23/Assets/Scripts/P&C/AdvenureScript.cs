@@ -15,6 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
     public Vector2 targetPos;
     public float speed;
     public bool isMoving;
+    public bool key = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class NewBehaviourScript : MonoBehaviour
 
                 print(hit.collider.gameObject.name);
 
+                //Abfrage oob der Collider vom Boden getroffen wurde
                 if (hit.collider.gameObject.tag == "Boden")
                 {
                     //Player Position verändern
@@ -58,6 +60,14 @@ public class NewBehaviourScript : MonoBehaviour
                     isMoving = true;
                     //Überrprüfe ob SpriteFlip notwendig
                     CheckSpriteFlip();
+                }
+                else if(hit.collider.gameObject.name == "Kippen")
+                {
+                    //Es ist eein einsammelbares Objekt (hier Kippen)
+                    //Grafik Deaktivieren
+                    hit.collider.gameObject.SetActive(false);
+                    //Schlüsssel in Script abspeichern
+                    key = true;
                 }
 
             }
