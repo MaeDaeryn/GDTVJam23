@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Boden
   - NPC
+  - CageKey
+  - Soul
+  - Fatty
+  - Cage
+  - Lever
+  - CageUp
+  - CageDown
+  - StartCave
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,10 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject lever;
     public GameObject cageUp;
     public GameObject cageDown;
+    public GameObject feuerUp;
+    public GameObject feuerDown;
+    public GameObject cageOpen;
+    public GameObject feuerFree;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +81,7 @@ public class NewBehaviourScript : MonoBehaviour
                     //Schlüsssel in Script abspeichern
                     key = true;
                 }
-                if(hit.collider.gameObject.tag == "soul")
+                if(hit.collider.gameObject.tag == "Soul")
                 {
                     hit.collider.gameObject.SetActive(false);
                     soul = soul + 1;
@@ -89,7 +93,6 @@ public class NewBehaviourScript : MonoBehaviour
                     {
                         lever.transform.localScale = new Vector3(-lever.transform.localScale.x, lever.transform.localScale.y, lever.transform.localScale.z);
                     }
-
                     // Make CageUp object disappear
                     if (cageUp != null)
                     {
@@ -101,7 +104,63 @@ public class NewBehaviourScript : MonoBehaviour
                     {
                         cageDown.SetActive(true);
                     }
+                    // Make FeuerUp object disappear
+                    if (feuerUp != null)
+                    {
+                        feuerUp.SetActive(false);
+                    }
+
+                    // Make FeuerDown object appear
+                    if (feuerDown != null)
+                    {
+                        feuerDown.SetActive(true);
+                    }
                 }
+                if (hit.collider.gameObject.tag == "CageDown")
+                {
+                    if (key)
+                    {
+                        // Make CageDown object disappear
+                        if (cageDown != null)
+                        {
+                            cageDown.SetActive(false);
+                        }
+
+                        // Make CageOpen object appear
+                        if (cageOpen != null)
+                        {
+                            cageOpen.SetActive(true);
+                        }
+
+                        // Make FeuerUp object disappear
+                        if (feuerDown != null)
+                        {
+                            feuerDown.SetActive(false);
+                        }
+
+                        // Make feuerFree object appear
+                        if (feuerFree != null)
+                        {
+                            feuerFree.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        print("kein Key vorhanden");
+                    }
+                }
+                if(hit.collider.gameObject.tag == "StartCave")
+                {
+
+                }
+
+
+
+
+
+
+
+
 
             }
             else
