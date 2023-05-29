@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -151,7 +152,10 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 if(hit.collider.gameObject.tag == "StartCave")
                 {
-
+                    if(soul == 1)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
                 }
 
 
