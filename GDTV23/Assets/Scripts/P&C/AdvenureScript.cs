@@ -34,6 +34,13 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject uhr;
     public GameObject BlueNo;
     public GameObject BlueYes;
+    public GameObject clarice;
+    public GameObject brian;
+    public GameObject gilbert;
+    public GameObject clariceFlame;
+    public GameObject brianFlame;
+    public GameObject gilbertFlame;
+    public int end = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -223,6 +230,72 @@ public class NewBehaviourScript : MonoBehaviour
                         BlueYes.SetActive(true);
                     }
                 }
+                if (hit.collider.gameObject.tag == "Brian")
+                {
+                    hit.collider.gameObject.SetActive(false);
+
+                    // Make brianFlame object disappear
+                    if (brianFlame != null)
+                    {
+                        brianFlame.SetActive(false);
+                    }
+
+                    // Make brian object appear
+                    if (brian != null)
+                    {
+                        brian.SetActive(true);
+                    }
+
+                    end = end + 1;
+                    if (end == 3)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                }
+                if (hit.collider.gameObject.tag == "Clarice")
+                {
+                    hit.collider.gameObject.SetActive(false);
+
+                    // Make clariceFlame object disappear
+                    if (clariceFlame != null)
+                    {
+                        clariceFlame.SetActive(false);
+                    }
+
+                    // Make clarice object appear
+                    if (clarice != null)
+                    {
+                        clarice.SetActive(true);
+                    }
+
+                    end = end + 1;
+                    if (end == 3)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                }
+                if (hit.collider.gameObject.tag == "Gilbert")
+                {
+                    hit.collider.gameObject.SetActive(false);
+
+                    // Make gilbertFlame object disappear
+                    if (gilbertFlame != null)
+                    {
+                        gilbertFlame.SetActive(false);
+                    }
+
+                    // Make gilbert object appear
+                    if (gilbert != null)
+                    {
+                        gilbert.SetActive(true);
+                    }
+
+                    end = end + 1;
+                    if (end == 3)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                }
 
 
 
@@ -234,10 +307,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 
 
-
-
-
-                else
+                    else
                 {
                     print("Kein Collider ");
                 }
