@@ -32,6 +32,8 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject GreenYes;
     public GameObject porno;
     public GameObject uhr;
+    public GameObject BlueNo;
+    public GameObject BlueYes;
 
     // Start is called before the first frame update
     void Start()
@@ -205,7 +207,22 @@ public class NewBehaviourScript : MonoBehaviour
                         uhr.SetActive(true);
                     }
                 }
+                if (hit.collider.gameObject.tag == "Uhr")
+                {
+                    hit.collider.gameObject.SetActive(false);
 
+                    // Make BlueNo object disappear
+                    if (BlueNo != null)
+                    {
+                        BlueNo.SetActive(false);
+                    }
+
+                    // Make BlueYes object appear
+                    if (BlueYes != null)
+                    {
+                        BlueYes.SetActive(true);
+                    }
+                }
 
 
 
