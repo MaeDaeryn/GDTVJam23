@@ -27,6 +27,11 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject cageOpen;
     public GameObject feuerFree;
     public GameObject BatIgnore;
+    public GameObject Bat;
+    public GameObject GreenNo;
+    public GameObject GreenYes;
+    public GameObject porno;
+    public GameObject uhr;
 
     // Start is called before the first frame update
     void Start()
@@ -151,7 +156,7 @@ public class NewBehaviourScript : MonoBehaviour
                         print("kein Key vorhanden");
                     }
                 }
-                if (hit.collider.gameObject.tag == "StartCave")
+                if (hit.collider.gameObject.tag == "NextLevel")
                 {
                     if (soul == 1)
                     {
@@ -167,25 +172,54 @@ public class NewBehaviourScript : MonoBehaviour
                     {
                         BatIgnore.SetActive(false);
                     }
+                    // Make Bat object appear
+                    if (Bat != null)
+                    {
+                        Bat.SetActive(true);
+                    }
 
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                if (hit.collider.gameObject.tag == "Rechner")
+                {
+                    hit.collider.gameObject.SetActive(false);
+
+                    // Make GreenNo object disappear
+                    if (GreenNo != null)
+                    {
+                       GreenNo.SetActive(false);
+                    }
+
+                    // Make GreenYes object appear
+                    if (GreenYes != null)
+                    {
+                        GreenYes.SetActive(true);
+                    }                  
+                }
+                if (hit.collider.gameObject.tag == "Porno")
+                {
+                    hit.collider.gameObject.SetActive(false);
+
+                    // Make uhr object appear
+                    if (uhr != null)
+                    {
+                        uhr.SetActive(true);
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 else
                 {
                     print("Kein Collider ");
