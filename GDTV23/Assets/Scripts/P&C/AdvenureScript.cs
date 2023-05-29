@@ -26,7 +26,9 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (DIalogManager.isActive == true)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             print("Maustaste wude gedrückt.");

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boden
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Objects
   - Water
   - UI
   - 

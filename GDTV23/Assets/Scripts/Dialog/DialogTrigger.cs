@@ -7,6 +7,15 @@ public class DialogTrigger : MonoBehaviour
     public Dialog[] dialoge;
     public Character[] characters;
 
+    private void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Start the dialogue here
+            StartDialog();
+        }
+    }
+
     public void StartDialog()
     {
         FindObjectOfType<DIalogManager>().OpenDialog(dialoge, characters);
