@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ public class NewBehaviourScript : MonoBehaviour
     public float speed;
     public bool isMoving;
     public bool key = false;
+    public int soul = 0;
+    public GameObject lever;
+    public GameObject cageUp;
+    public GameObject cageDown;
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +68,39 @@ public class NewBehaviourScript : MonoBehaviour
                     //Überrprüfe ob SpriteFlip notwendig
                     CheckSpriteFlip();
                 }
-                else if(hit.collider.gameObject.name == "Kippen")
+                //Der key für den Cage wird eingesammelt
+                if (hit.collider.gameObject.tag == "CageKey")
                 {
-                    //Es ist eein einsammelbares Objekt (hier Kippen)
+
                     //Grafik Deaktivieren
                     hit.collider.gameObject.SetActive(false);
                     //Schlüsssel in Script abspeichern
                     key = true;
+                }
+                if(hit.collider.gameObject.tag == "soul")
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    soul = soul + 1;
+                }
+                if(hit.collider.gameObject.tag == "Lever")
+                {
+                    // Flip lever object on the X-axis
+                    if (lever != null)
+                    {
+                        lever.transform.localScale = new Vector3(-lever.transform.localScale.x, lever.transform.localScale.y, lever.transform.localScale.z);
+                    }
+
+                    // Make CageUp object disappear
+                    if (cageUp != null)
+                    {
+                        cageUp.SetActive(false);
+                    }
+
+                    // Make CageDown object appear
+                    if (cageDown != null)
+                    {
+                        cageDown.SetActive(true);
+                    }
                 }
 
             }

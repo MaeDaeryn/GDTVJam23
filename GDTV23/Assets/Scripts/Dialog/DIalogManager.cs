@@ -40,7 +40,7 @@ public class DIalogManager : MonoBehaviour
         characterImage.sprite = characterToDisplay.sprite;
     }
 
-    public void NextDialog()
+        public void NextDialog()
     {
         activeDialog++;
         if (activeDialog < currentDialoge.Length)
@@ -52,6 +52,7 @@ public class DIalogManager : MonoBehaviour
             animator.SetBool("isOpen", false);
             Debug.Log("Conversation ended!");
             isActive = false;
+
         }
         //StopAllCoroutines();
         //StartCoroutine(TypeDialog(dialogText));
