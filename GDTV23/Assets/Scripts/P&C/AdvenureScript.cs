@@ -26,6 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject feuerDown;
     public GameObject cageOpen;
     public GameObject feuerFree;
+    public GameObject BatIgnore;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,7 @@ public class NewBehaviourScript : MonoBehaviour
             //Raycast2D
             hit = Physics2D.Raycast(mouseWorl2D, Vector2.zero);
 
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 print("Collider getroffen ");
 
@@ -82,12 +83,12 @@ public class NewBehaviourScript : MonoBehaviour
                     //Schlüsssel in Script abspeichern
                     key = true;
                 }
-                if(hit.collider.gameObject.tag == "Soul")
+                if (hit.collider.gameObject.tag == "Soul")
                 {
                     hit.collider.gameObject.SetActive(false);
                     soul = soul + 1;
                 }
-                if(hit.collider.gameObject.tag == "Lever")
+                if (hit.collider.gameObject.tag == "Lever")
                 {
                     // Flip lever object on the X-axis
                     if (lever != null)
@@ -150,26 +151,45 @@ public class NewBehaviourScript : MonoBehaviour
                         print("kein Key vorhanden");
                     }
                 }
-                if(hit.collider.gameObject.tag == "StartCave")
+                if (hit.collider.gameObject.tag == "StartCave")
                 {
-                    if(soul == 1)
+                    if (soul == 1)
                     {
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     }
                 }
+                if (hit.collider.gameObject.tag == "MP3")
+                {
+                    hit.collider.gameObject.SetActive(false);
 
+                    // Make BatIgnore object disappear
+                    if (BatIgnore != null)
+                    {
+                        BatIgnore.SetActive(false);
+                    }
 
-
-
-
-
-
-
-
-            }
-            else
-            {
-                print("Kein Collider ");
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                else
+                {
+                    print("Kein Collider ");
+                }
             }
         }
     }
