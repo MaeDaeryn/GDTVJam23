@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayButton : MonoBehaviour
+public class CreditButton : MonoBehaviour
 {
-    public string sceneName = "Hell"; // The name of the scene you want to load
+    public string sceneName = "Credits"; // The name of the scene you want to load
 
     private void Start()
     {
